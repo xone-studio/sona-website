@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sona — AI 实时同声传译助手</title>
   <meta name="description" content="Sona 是专为跨语言会议打造的 AI 语音助手，实时同声传译与双语字幕，适配 Zoom、腾讯会议等主流平台。">
+  <link rel="icon" href="sona-icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -69,12 +70,9 @@
     .logo-mark {
       width: 34px; height: 34px;
       border-radius: 9px;
-      background: var(--gradient);
-      display: grid;
-      place-items: center;
-      font-size: 15px;
-      font-weight: 900;
+      overflow: hidden;
       flex-shrink: 0;
+      display: block;
     }
 
     .nav-links {
@@ -91,18 +89,41 @@
     }
     .nav-links a:hover { color: white; }
 
-    .nav-cta {
-      padding: 9px 22px;
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-cta,
+    .nav-download {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 24px;
       border-radius: 100px;
-      background: var(--gradient);
-      color: white;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 800;
       text-decoration: none;
       transition: opacity 0.2s, transform 0.2s;
       white-space: nowrap;
     }
-    .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .nav-cta {
+      color: white;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .nav-download {
+      color: #0B0B0C;
+      background: rgba(255,255,255,0.96);
+    }
+
+    .nav-cta:hover,
+    .nav-download:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
 
     /* ─── HERO ─── */
     .hero {
@@ -174,10 +195,10 @@
       z-index: 1;
     }
 
-    .hero-title .t-white { color: white; display: block; }
+    .hero-title .t-white { color: white; display: inline; }
 
     .hero-title .t-grad {
-      display: block;
+      display: inline;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -229,17 +250,17 @@
     .btn-ghost {
       padding: 15px 34px;
       border-radius: 100px;
-      background: transparent;
-      color: var(--text-secondary);
+      background: rgba(255,255,255,0.96);
+      color: #0B0B0C;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 800;
       text-decoration: none;
-      border: 1px solid var(--border);
+      border: 1px solid transparent;
       cursor: pointer;
       font-family: inherit;
-      transition: border-color 0.2s, color 0.2s;
+      transition: background 0.2s, transform 0.2s;
     }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: white; }
+    .btn-ghost:hover { background: white; transform: translateY(-1px); }
 
     /* ─── WAVE ─── */
     .wave-wrap {
@@ -358,6 +379,10 @@
       transform: translateY(-4px);
     }
 
+    .feat-card--wide {
+      grid-column: 1 / -1;
+    }
+
     .feat-icon {
       width: 50px; height: 50px;
       border-radius: 14px;
@@ -379,6 +404,96 @@
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.75;
+    }
+
+    /* ─── DOWNLOAD ─── */
+    .download-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+      padding: 64px 48px;
+      text-align: center;
+    }
+
+    .download-section .section-heading {
+      margin-bottom: 0;
+    }
+
+    .download-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .download-primary {
+      color: #0B0B0C;
+      background: rgba(255,255,255,0.96);
+      border-color: transparent;
+    }
+
+    .download-secondary {
+      color: rgba(255,255,255,0.86);
+      background: transparent;
+      border-color: rgba(255,255,255,0.18);
+      cursor: not-allowed;
+    }
+
+    .download-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .download-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 230px;
+      min-height: 60px;
+      padding: 0 32px;
+      border: 1px solid;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .download-primary:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    .download-secondary:hover {
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .download-primary:focus-visible {
+      outline: 3px solid rgba(59,130,246,0.5);
+      outline-offset: 4px;
+    }
+
+    .download-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    .download-soon {
+      color: rgba(136,146,164,0.76);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .download-spacer {
+      visibility: hidden;
     }
 
     /* ─── HOW IT WORKS ─── */
@@ -450,6 +565,16 @@
       border-color: var(--border-hover);
       color: white;
       background: rgba(124,58,237,0.08);
+    }
+
+    .chip-more {
+      border-style: dashed;
+      color: var(--text-muted);
+    }
+    .chip-more:hover {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-muted);
     }
 
     .lang-box {
@@ -598,11 +723,14 @@
     @media (max-width: 900px) {
       .features-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; gap: 32px; }
+      .download-section { padding: 64px 32px; }
     }
 
     @media (max-width: 640px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-download { padding: 9px 18px; font-size: 13px; }
       .hero { padding: 120px 24px 60px; }
       .hero-title { letter-spacing: -1.5px; }
       .stats-strip { gap: 36px; padding: 44px 24px; }
@@ -612,6 +740,9 @@
       .beta-form { flex-direction: column; }
       footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
       .feat-card { padding: 28px; }
+      .download-section { min-height: 320px; padding: 56px 0; }
+      .download-buttons { width: 100%; margin-top: 34px; }
+      .download-button { width: 100%; min-width: 0; font-size: 17px; }
     }
   </style>
 </head>
@@ -620,15 +751,25 @@
 <!-- ═══ NAV ═══ -->
 <nav>
   <a href="#" class="nav-logo">
-    <div class="logo-mark">S</div>
+    <img class="logo-mark" src="sona-icon.svg" alt="Sona">
     Sona
   </a>
   <ul class="nav-links">
     <li><a href="#features">产品特性</a></li>
     <li><a href="#how">使用流程</a></li>
     <li><a href="#compat">兼容平台</a></li>
+    <li><a href="#download">下载</a></li>
   </ul>
-  <a href="#beta" class="nav-cta">申请内测</a>
+  <div class="nav-actions">
+    <a
+      href="https://github.com/xone-studio/sona-releases/releases/download/v0.1.2/Sona_0.1.2_aarch64.dmg"
+      class="nav-download"
+      data-latest-download
+      aria-label="下载 Sona Mac 客户端"
+    >
+      下载 Mac 客户端
+    </a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -642,18 +783,23 @@
   </div>
 
   <h1 class="hero-title">
-    <span class="t-white">让语言不再是</span>
-    <span class="t-grad">沟通的边界</span>
+    <span class="t-white">听懂世界，</span>
+    <span class="t-grad">自由表达</span>
   </h1>
 
   <p class="hero-desc">
-    Sona 是专为跨语言会议打造的 AI 语音助手。<strong>实时同声传译</strong>与<strong>双语字幕</strong>，
-    让每一次国际会议都像母语交流一样自然流畅。
+    开口说话，Sona 实时翻译并同步生成<strong>双语字幕</strong>。支持 8 种语言、延迟低至 3 秒， 一键生成 <strong>摘要，总结</strong>，让你在任何场合都能用母语思考、<strong>自由表达</strong>。
   </p>
 
   <div class="hero-actions">
-    <a href="#beta" class="btn-primary">申请内测 →</a>
-    <a href="#features" class="btn-ghost">了解特性</a>
+    <a href="https://xone-family.feishu.cn/share/base/form/shrcnL2eQQ4DR5QoLx485gc5cPf" target="_blank" rel="noopener" class="btn-primary">内测资格申请 →</a>
+    <a
+      href="https://github.com/xone-studio/sona-releases/releases/download/v0.1.2/Sona_0.1.2_aarch64.dmg"
+      class="btn-ghost"
+      data-latest-download
+    >
+      下载 Mac 客户端
+    </a>
   </div>
 
   <div class="wave-wrap" id="waveWrap"></div>
@@ -662,7 +808,7 @@
 <!-- ═══ STATS ═══ -->
 <div class="stats-strip stagger">
   <div class="stat">
-    <div class="stat-num">10+</div>
+    <div class="stat-num">8</div>
     <div class="stat-lbl">支持语言</div>
   </div>
   <div class="stat">
@@ -690,7 +836,7 @@
     <div class="feat-card">
       <div class="feat-icon">🎙️</div>
       <h3 class="feat-title">实时同声传译</h3>
-      <p class="feat-desc">双向同传，去程与回程独立运行。你说中文对方听英文，对方说英文你听中文，延迟3s～5s，像专业口译员在场。</p>
+      <p class="feat-desc">双向同传，去程与回程独立运行。你说中文对方听英文，对方说英文你听中文，延迟2s～3s，像专业口译员在场。</p>
     </div>
     <div class="feat-card">
       <div class="feat-icon">📝</div>
@@ -705,7 +851,17 @@
     <div class="feat-card">
       <div class="feat-icon">🔒</div>
       <h3 class="feat-title">隐私优先设计</h3>
-      <p class="feat-desc">音频数据仅用于实时翻译，不在本地存储，不上传云端归档。每一句话都属于你，而不是任何服务器。</p>
+      <p class="feat-desc">音频数据仅用于实时翻译，不上传云端归档。每一句话都属于你，而不是任何服务器。</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📚</div>
+      <h3 class="feat-title">会议记录沉淀</h3>
+      <p class="feat-desc">自动保留每次会话的原文与译文，支持回看、检索和导出字幕或文本，让跨语言讨论真正留下可复用的资料。</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">✨</div>
+      <h3 class="feat-title">AI 会议摘要</h3>
+      <p class="feat-desc">会议结束后，Sona 自动生成结构化摘要——关键决策、待办事项、发言要点一目了然，告别手动整理记录。</p>
     </div>
   </div>
 </section>
@@ -760,13 +916,12 @@
       <div class="chip">中文</div>
       <div class="chip">English</div>
       <div class="chip">日本語</div>
-      <div class="chip">한국어</div>
-      <div class="chip">Français</div>
-      <div class="chip">Deutsch</div>
       <div class="chip">Español</div>
       <div class="chip">Português</div>
+      <div class="chip">Deutsch</div>
+      <div class="chip">Français</div>
       <div class="chip">Bahasa Indonesia</div>
-      <div class="chip">中英互译</div>
+      <div class="chip chip-more">更多语言支持中…</div>
     </div>
   </div>
 </section>
@@ -775,36 +930,59 @@
 <div class="beta-wrap" id="beta">
   <div class="beta-glow"></div>
   <div class="beta-inner fade-up">
-    <h2 class="beta-title">提前体验<br>AI 语言助手</h2>
+    <h2 class="beta-title">提前体验<br>Sona</h2>
     <p class="beta-desc">
       加入内测，成为第一批用 Sona 打破语言边界的人。<br>
       我们将优先邀请填写申请的用户。
     </p>
-    <form class="beta-form" id="betaForm">
-      <input
-        type="email"
-        class="beta-input"
-        placeholder="输入你的邮箱地址"
-        required
-        autocomplete="email"
-      >
-      <button type="submit" class="btn-primary">申请内测</button>
-    </form>
-    <p class="beta-note">我们会在内测开放时第一时间通知你，不发垃圾邮件。</p>
+    <a href="https://xone-family.feishu.cn/share/base/form/shrcnL2eQQ4DR5QoLx485gc5cPf" target="_blank" rel="noopener" class="btn-primary">填写申请问卷 →</a>
+    <p class="beta-note">填写后我们会在内测开放时第一时间联系你。</p>
   </div>
 </div>
+
+<!-- ═══ DOWNLOAD ═══ -->
+<section class="section" id="download">
+  <div class="download-section fade-up">
+    <h2 class="section-heading">立即下载 Sona</h2>
+    <div class="download-buttons stagger">
+      <div class="download-option">
+        <a
+          href="https://github.com/xone-studio/sona-releases/releases/download/v0.1.2/Sona_0.1.2_aarch64.dmg"
+          class="download-button download-primary"
+          data-latest-download
+          aria-label="下载最新版 Sona macOS 安装包"
+        >
+          <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M17.05 12.66c-.03-3.05 2.49-4.51 2.6-4.58-1.42-2.07-3.62-2.35-4.4-2.38-1.87-.19-3.65 1.1-4.6 1.1-.96 0-2.43-1.08-3.99-1.05-2.05.03-3.94 1.19-4.99 3.02-2.13 3.7-.55 9.18 1.53 12.18 1.01 1.46 2.22 3.1 3.81 3.04 1.53-.06 2.11-.99 3.96-.99 1.84 0 2.36.99 3.98.96 1.64-.03 2.68-1.49 3.68-2.96 1.16-1.7 1.64-3.35 1.67-3.43-.04-.02-3.2-1.23-3.25-4.91ZM14.03 3.73C14.87 2.71 15.44 1.3 15.28 0c-1.21.05-2.68.81-3.55 1.82-.78.9-1.46 2.34-1.28 3.71 1.35.1 2.74-.69 3.58-1.8Z"/>
+          </svg>
+          下载 Mac 版
+        </a>
+        <span class="download-soon download-spacer">敬请期待</span>
+      </div>
+      <div class="download-option">
+        <div class="download-button download-secondary" aria-disabled="true">
+          <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M2.5 4.05 10.62 2.94v8.36H2.5V4.05Zm9.2-1.27L21.5 1.36v9.94h-9.8V2.78ZM2.5 12.28h8.12v8.38L2.5 19.54v-7.26Zm9.2 0h9.8v9.96l-9.8-1.42v-8.54Z"/>
+          </svg>
+          下载 Windows 版
+        </div>
+        <span class="download-soon">敬请期待</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <a href="#" class="footer-logo">
-    <div class="logo-mark">S</div>
+    <img class="logo-mark" src="sona-icon.svg" alt="Sona">
     Sona
   </a>
   <ul class="footer-links">
     <li><a href="#features">产品特性</a></li>
     <li><a href="#how">使用流程</a></li>
     <li><a href="#compat">兼容平台</a></li>
-    <li><a href="#beta">申请内测</a></li>
+    <li><a href="https://xone-family.feishu.cn/share/base/form/shrcnL2eQQ4DR5QoLx485gc5cPf" target="_blank" rel="noopener">内测资格申请</a></li>
   </ul>
   <span class="footer-copy">© 2025 Sona · MIT License</span>
 </footer>
@@ -834,18 +1012,55 @@
 
   document.querySelectorAll('.fade-up, .stagger').forEach(el => io.observe(el));
 
-  // ── Beta form ──
-  document.getElementById('betaForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button');
-    const input = this.querySelector('input');
-    btn.textContent = '✓ 已提交，感谢！';
-    btn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
-    btn.style.boxShadow = '0 0 40px rgba(16,185,129,0.3)';
-    btn.disabled = true;
-    input.disabled = true;
-    input.style.opacity = '0.5';
-  });
+  // ── Latest release download ──
+  const latestDownloads = document.querySelectorAll('[data-latest-download]');
+  const latestReleaseApiUrl = 'https://api.github.com/repos/xone-studio/sona-releases/releases/latest';
+
+  async function detectMacArch() {
+    if (navigator.userAgentData?.getHighEntropyValues) {
+      const { architecture } = await navigator.userAgentData.getHighEntropyValues(['architecture']);
+      if (/arm|aarch64/i.test(architecture)) return 'arm64';
+      if (/x86|x64/i.test(architecture)) return 'x64';
+    }
+
+    return 'unknown';
+  }
+
+  function pickMacDmgAsset(assets, arch) {
+    const dmgAssets = assets?.filter(asset => asset.name.endsWith('.dmg')) || [];
+    const armAsset = dmgAssets.find(asset => /aarch64|arm64|apple[-_ ]?silicon/i.test(asset.name));
+    const intelAsset = dmgAssets.find(asset => /x64|x86_64|amd64|intel/i.test(asset.name));
+
+    if (arch === 'x64' && intelAsset) return intelAsset;
+    if (arch === 'arm64' && armAsset) return armAsset;
+
+    return armAsset || intelAsset || dmgAssets[0];
+  }
+
+  async function updateLatestDownloadLink() {
+    if (!latestDownloads.length) return;
+    try {
+      const response = await fetch(latestReleaseApiUrl, {
+        headers: { Accept: 'application/vnd.github+json' }
+      });
+
+      if (!response.ok) throw new Error('Unable to load latest release');
+
+      const release = await response.json();
+      const macArch = await detectMacArch();
+      const dmgAsset = pickMacDmgAsset(release.assets, macArch);
+
+      if (dmgAsset?.browser_download_url) {
+        latestDownloads.forEach(download => {
+          download.href = dmgAsset.browser_download_url;
+        });
+      }
+    } catch (error) {
+      // Keep the current release URL as a no-JavaScript and offline fallback.
+    }
+  }
+
+  updateLatestDownloadLink();
 </script>
 </body>
 </html>

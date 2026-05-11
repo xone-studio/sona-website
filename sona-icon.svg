@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Sona</title>
+  <desc>Sona AI voice assistant icon</desc>
+  <g transform="translate(32 32) scale(0.875)">
+    <rect width="512" height="512" rx="112" fill="#1E1B4B"></rect>
+    <rect x="93" y="231" width="34" height="70" rx="17" fill="rgba(255,255,255,0.55)"></rect>
+    <rect x="145" y="203" width="34" height="126" rx="17" fill="rgba(255,255,255,0.82)"></rect>
+    <rect x="197" y="176" width="34" height="180" rx="17" fill="#ffffff"></rect>
+    <rect x="249" y="153" width="34" height="226" rx="17" fill="#ffffff"></rect>
+    <rect x="301" y="176" width="34" height="180" rx="17" fill="#ffffff"></rect>
+    <rect x="353" y="203" width="34" height="126" rx="17" fill="rgba(255,255,255,0.82)"></rect>
+    <rect x="405" y="231" width="34" height="70" rx="17" fill="rgba(255,255,255,0.55)"></rect>
+  </g>
+</svg>
